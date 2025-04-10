@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musician's Calendar with Schedule</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!--Using HTML, Bootstrap, and JavaScript create a single page website that contains the following:-->
+  <!--A Bootstrap styled table and A Bootstrap styled form -->
+  
+<!--not required but title would be nice-->
+
+<p class="fs-2">Monthly Gig Events</p>
+
+<style>
+    .calendar {
+      max-width: 600px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    .day {
+      cursor: pointer;
+      position: relative;
+    }
+    .day:hover {
+      background-color: #f8f9fa;
+    }
+    .event {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      background-color: #28a745;
+      color: white;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 10px;
+    }
+    .schedule-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding-top: 20px;
+    }
+    .schedule-list {
+      padding: 0;
+      list-style: none;
+    }
+    .schedule-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="calendar">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <button id="prevMonth" class="btn btn-primary">&lt;</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth" class="btn btn-primary">&gt;</button>
+      </div>
+      <div id="calendarGrid" class="row"></div>
+      <button id="addEventButton" class="btn btn-success mt-4">Add Event</button>
+    </div>
+
+    <div class="schedule-container">
+      <h4>Schedule for <span id="scheduleDay"></span></h4>
+      <ul id="scheduleList" class="schedule-list"></ul>
+      <button id="addScheduleEvent" class="btn btn-primary mt-3">Add Schedule Event</button>
+    </div>
+
+  </div>
+
+  <!-- Event Modal -->
+  <div class="modal" tabindex="-1" id="eventModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add an Event</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="eventTitle" class="form-label">Event Title</label>
+            <input type="text" class="form-control" id="eventTitle" placeholder="Enter event title">
+          </div>
+          <div class="mb-3">
+            <label for="eventDate" class="form-label">Event Date</label>
+            <input type="date" class="form-control" id="eventDate">
+          </div>
+          <div class="mb-3">
+            <label for="eventTime" class="form-label">Event Time</label>
+            <input type="time" class="form-control" id="eventTime">
+          </div>
+          <div class="mb-3">
+            <label for="eventLocation" class="form-label">Location</label>
+            <input type="text" class="form-control" id="eventLocation" placeholder="Event location">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveEventButton">Save Event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <figure class="figure">
+    <img src="images piano/Picture2.jpg" class="figure-img img-fluid rounded" alt="green piano covering page from left to right">
+    <figcaption class="figure-caption">.</figcaption>
+  </figure>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="calendar.js"></script>
+</body>
+</html>
+
+
+
